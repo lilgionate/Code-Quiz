@@ -58,7 +58,7 @@ li {
 
 .inner-container {
     height:  100%;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -93,9 +93,10 @@ main{
 
 
 /* Question Screen*/
-.question-screen{
+.question-screen {
     display: none;
 }
+
 
 
 /* Quiz finish screen*/

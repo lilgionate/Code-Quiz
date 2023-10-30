@@ -42,6 +42,8 @@ let highScore = [];
 function startQuiz() {
     document.getElementById('start-container').style.display = 'none';
     document.getElementById('question-screen').style.display = 'block';
+    
+
 
     timerInterval = setInterval(function() {
         time--;
@@ -80,6 +82,7 @@ function checkAnswer(answer) {
     }
 
     if (currentQuestionIndex < quizQuestion.length -1) {
+        currentQuestionIndex++;
         displayQuestion();
 
     } else {
@@ -91,15 +94,64 @@ function checkAnswer(answer) {
 function endQuiz() {
     clearInterval(timerInterval);
     document.getElementById('question-screen').style.display = 'none';
+    document.getElementById('quiz-finish-screen').style.display = 'block';
 
     document.getElementById('timer').style.display = "none";
-    document.getElementById('result').textContent = "Final Score: " + score;
+    document.getElementById('final-score').textContent = "Final Score: " + score;
     document.getElementById('initials').style.display = "inline";
     document.getElementById('submit').style.display = "inline";
 }
 
+function displayHighScores() {
+    const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    const scoreList = document.getElementById('scores-list');
+    scoreList.innerHTML = '';
+     for (let i = 0; i < Math.min(highScores.length, 5); i++) {
+        const li = document.createElement('li');
+        li.textContent = `${highScore[i].initials} - ${highScore[i].score}`;
+        scoreList.appendChild(li);
+    };
+}
+
 
 function saveScore() {
+    document.getElementById('quiz-finish-screen').style.display = 'none';
+    document.getElementById('highscores-screen').style.display = 'block';
     const initials = 
     document.getElementById('initials').value;
+    const highScores = JSON.parse(localStorage.getItem('highScores'))  || [];
+    const newScore = {
+        initials: initials,
+        score: score
+    };
+
+  
+highScores.push(newScore);
+highScore.sort((a , b) => b.score - a.score);
+highScores.splice(5);
+
+localStorage.setItem('highScores', JSON.stringify(highScores));
+displayHighScores();
+
+}
+
+
+function clearHighScores() {
+    localStorage.removeItem('highScores');
+    displayHighScores();
+}
+
+function restartGame() {
+    currentQuestionIndex = 0;
+    time = 60;
+    score = 0;
+    clearInterval(timerInterval);
+    document.getElementById('highscores-screen').style.display = 'none';
+    document.getElementById('start-container').style.display = 'block';
+
+    document.getElementById('timer').style.display = "block";
+    document.getElementById('final-score').textContent = "";
+    document.getElementById('initials').value = '';
+    document.getElementById('initials').style.display = 'none';
+    document.getElementById('submit').style.display = "none";
 }

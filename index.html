@@ -54,26 +54,25 @@
 
                 <!-- Phase 3 -->
 
-                <section class="quiz-finish-screen" style="display: none;">
+                <section class="quiz-finish-screen" id="quiz-finish-screen" style="display: none;">
                     <h2>All Done!</h2>
-                    <p>Your Score: 00</p>
+                    <p id="final-score"></p>
                     <div>
                        <label>Enter Initials:</label>
                        <input type="text" id="initials">          
-
                        <button id="submit" onclick="saveScore()">Submit</button>
                     </div>
                 </section>
 
                 <!-- Phase 4 -->
-                <section class="highscores-screen" style="display: none;">
-                    <h2>Highscores:</h2>
-                    <ol>
+                <section class="highscores-screen" id="highscores-screen" style="display: none;">
+                    <h2 id="highscores">Highscores</h2>
+                    <ol id="scores-list">
                         <!-- THIS WILL BE GENERATED IN JAVASCRIPT -->
-                        <li>GV - 20</li>
+                        <li></li>
                     </ol>
-                    <button>Go Back</button>
-                    <button>Clear</button>
+                    <button onclick="restartGame()">Return To Quiz</button>
+                    <button onclick="clearHighScore()">Clear Highscore</button>
                 </section>
             </main>
 
