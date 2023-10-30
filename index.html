@@ -1,0 +1,86 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Code Quiz</title>
+</head>
+<body>
+    <!-- main outer div -->
+    <div class="outer-container">
+
+        <!-- top-bar section -->
+        <div class="top-bar">
+            <button>View Hichscores</button>
+            <p id="timer">Timer:<span id="time">60</span></p>
+        </div>
+
+        <!-- inner div -->
+        <div class="inner-container">
+
+
+            <!-- Phase 1 -->
+
+            <!-- main header/quiz intro -->
+            <header class="quiz-intro" id="start-container">
+                <h1>Code Quiz Challenge</h1>
+                <p>Start the quiz!</p>
+                <button id="start-btn" onclick="startQuiz()">Start Quiz</button>
+            </header>
+
+            <!-- main quiz content-->
+            <main>
+
+
+                <!-- Phase 2 -->
+
+                <section class="question-screen" style="display: none;" id="question-screen">
+                    <h2 id="question"></h2>
+                    <ul>
+                        <!-- THIS WILL BE GENERATED IN JAVASCRIPT -->
+                        <li><button id="btn-a" onclick="checkAnswer('a')"></button></li>
+                        <li><button id="btn-b" onclick="checkAnswer('b')"></button></li>
+                        <li><button id="btn-c" onclick="checkAnswer('c')"></button></li>
+                        <li><button id="btn-d" onclick="checkAnswer('d')"></button></li>
+                    </ul>
+                    <div id="result"></div>
+                </section>
+
+
+                <!-- Phase 3 -->
+
+                <section class="quiz-finish-screen" style="display: none;">
+                    <h2>All Done!</h2>
+                    <p>Your Score: 00</p>
+                    <div>
+                       <label>Enter Initials:</label>
+                       <input type="text" id="initials">          
+
+                       <button id="submit" onclick="saveScore()">Submit</button>
+                    </div>
+                </section>
+
+                <!-- Phase 4 -->
+                <section class="highscores-screen" style="display: none;">
+                    <h2>Highscores:</h2>
+                    <ol>
+                        <!-- THIS WILL BE GENERATED IN JAVASCRIPT -->
+                        <li>GV - 20</li>
+                    </ol>
+                    <button>Go Back</button>
+                    <button>Clear</button>
+                </section>
+            </main>
+
+        </div>
+
+
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>

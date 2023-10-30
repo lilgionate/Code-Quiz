@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* global default font */
+    font-family: monospace;
+
+    /* debugging */
+   /* border: 1px solid red; */
+}
+
+body {
+    overflow: hidden;
+}
+
+p {
+    font-size: 1.3em;
+}
+
+button{
+    outline: none;
+    font-size: 1.3em;
+    
+}
+
+h1, h2 {
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* outer container */
+
+.outer-container {
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+
+
+/* top bar */
+
+.top-bar p {
+    float: right;
+}
+
+
+
+/* inner container */
+
+.inner-container {
+    height:  100%;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* header/quiz intro */
+
+.quiz-intro, main {
+    margin-bottom: 30vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.quiz-intro p {
+    text-align: center;
+}
+
+.quiz-intro button {
+    display: block;
+    margin: auto;
+    
+}
+
+
+/*main quiz section*/
+main{
+    display: block;
+}
+
+
+
+/* Question Screen*/
+.question-screen{
+    display: none;
+}
+
+
+/* Quiz finish screen*/
+
+.quiz-finish-screen {
+    display: none;
+}
+
+
+/*highscores screen*/
+
+.highscores-screen {
+   display: none;
+}
+
+.highscores-screen ol {
+    overflow-y: scroll;
+}
