@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./Assets/css/styles.css">
     <title>Code Quiz</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
 
         <!-- top-bar section -->
         <div class="top-bar">
-            <button>View Hichscores</button>
+            <button id="score-btn" onclick="viewHighScores()">View Hichscores</button>
             <p id="timer">Timer:<span id="time">60</span></p>
         </div>
 
@@ -69,7 +69,7 @@
                     <h2 id="highscores">Highscores</h2>
                     <ol id="scores-list">
                         <!-- THIS WILL BE GENERATED IN JAVASCRIPT -->
-                        <li></li>
+                        
                     </ol>
                     <button onclick="restartGame()">Return To Quiz</button>
                     <button onclick="clearHighScore()">Clear Highscore</button>
@@ -80,6 +80,6 @@
 
 
     </div>
-    <script src="./js/script.js"></script>
+    <script src="./Assets/js/script.js"></script>
 </body>
 </html>

@@ -108,13 +108,14 @@ function displayHighScores() {
     scoreList.innerHTML = '';
      for (let i = 0; i < Math.min(highScores.length, 5); i++) {
         const li = document.createElement('li');
-        li.textContent = `${highScore[i].initials} - ${highScore[i].score}`;
+        li.textContent = `${highScores[i].initials} - ${highScores[i].score}`;
         scoreList.appendChild(li);
     };
 }
 
 
 function saveScore() {
+    document.getElementById('score-btn').style.display = 'none';
     document.getElementById('quiz-finish-screen').style.display = 'none';
     document.getElementById('highscores-screen').style.display = 'block';
     const initials = 
@@ -127,7 +128,7 @@ function saveScore() {
 
   
 highScores.push(newScore);
-highScore.sort((a , b) => b.score - a.score);
+highScores.sort((a , b) => b.score - a.score);
 highScores.splice(5);
 
 localStorage.setItem('highScores', JSON.stringify(highScores));
@@ -136,7 +137,7 @@ displayHighScores();
 }
 
 
-function clearHighScores() {
+function clearHighScore() {
     localStorage.removeItem('highScores');
     displayHighScores();
 }
@@ -148,10 +149,24 @@ function restartGame() {
     clearInterval(timerInterval);
     document.getElementById('highscores-screen').style.display = 'none';
     document.getElementById('start-container').style.display = 'block';
+    document.getElementById('score-btn').style.display = 'block';
 
     document.getElementById('timer').style.display = "block";
     document.getElementById('final-score').textContent = "";
     document.getElementById('initials').value = '';
     document.getElementById('initials').style.display = 'none';
     document.getElementById('submit').style.display = "none";
+}
+
+
+function viewHighScores() {
+    document.getElementById('start-container').style.display = 'none';
+    document.getElementById('question-screen').style.display = 'none';
+    document.getElementById('score-btn').style.display = 'none';
+
+    document.getElementById('timer').style.display = "none";
+    document.getElementById('highscores-screen').style.display = 'block';
+
+    displayHighScores();
+
 }

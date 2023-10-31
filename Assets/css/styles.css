@@ -48,6 +48,10 @@ li {
 
 /* top bar */
 
+.top-bar{
+    display: inline;
+}
+
 .top-bar p {
     float: right;
 }
